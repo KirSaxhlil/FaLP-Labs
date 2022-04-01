@@ -1,5 +1,7 @@
 ﻿open System
 open Labs
 
-let main = 
+[<EntryPoint>]
+let Main argv = 
     lab5
+    0
