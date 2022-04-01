@@ -3,5 +3,5 @@ open Labs
 
 [<EntryPoint>]
 let Main argv = 
-    lab5
+    lab5()
     0
