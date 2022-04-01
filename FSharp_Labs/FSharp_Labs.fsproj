@@ -6,12 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Functions\Lab5_Functions.fs" />
+    <Compile Include="Labs\Lab5.fs" />
     <Compile Include="Labs\Labs.fs" />
     <Compile Include="Program.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Functions\" />
   </ItemGroup>
 
 </Project>
