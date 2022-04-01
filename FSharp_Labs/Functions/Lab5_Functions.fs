@@ -60,3 +60,14 @@ let MinDigitDown n =
         else if (n%10) < min then MinDigitDown_body (n/10) (n%10)
             else MinDigitDown_body (n/10) min
     MinDigitDown_body (n/10) (n%10)
+
+////// TASK 14 //////
+let DividersTraversal n func init = 
+    let rec DividersTraversal_body n func init divider =
+        if divider = 0 then init
+        else
+            let newInit = 
+                if n % divider = 0 then func init divider
+                else init
+            DividersTraversal_body n func newInit (divider - 1)
+    DividersTraversal_body n func init n

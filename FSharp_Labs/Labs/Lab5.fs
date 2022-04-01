@@ -37,3 +37,23 @@ let task_13() =
     Console.Write "Минимальная цифра числа, хвостовая рекурсия: "
     Console.WriteLine (MinDigitDown number)
     Console.WriteLine()
+
+let task_14() =
+    let number = 543
+    Console.WriteLine "Задача 14"
+    Console.WriteLine ("Исходное число: " + Convert.ToString number)
+    Console.Write "Сумма делителей числа: "
+    Console.WriteLine (DividersTraversal number (fun x y -> x + y) 0)
+    Console.Write "Произведение делителей числа: "
+    Console.WriteLine (DividersTraversal number (fun x y -> x * y) 1)
+    Console.Write "Максимальный из делителей числа: "
+    Console.WriteLine (DividersTraversal number (fun x y -> if y <> number then // Excluding self number as maximal divider
+                                                                if x > y then x
+                                                                else y
+                                                            else x) 0)
+    Console.Write "Минимальный из делителей числа: "
+    Console.WriteLine (DividersTraversal number (fun x y -> if y <> 1 then // Excluding 1 as minimal divider
+                                                                if x < y then x
+                                                                else y
+                                                            else x) number)
+    Console.WriteLine()
