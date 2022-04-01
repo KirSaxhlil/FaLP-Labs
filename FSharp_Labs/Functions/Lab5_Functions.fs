@@ -55,8 +55,8 @@ let rec MinDigitUp n =
         else MinDigitUp (n/10)
 
 let MinDigitDown n =
-    let rec MinDigitDown_body n max =
-        if n = 0 then max
-        else if (n%10) < max then MinDigitDown_body (n/10) (n%10)
-            else MinDigitDown_body (n/10) max
+    let rec MinDigitDown_body n min =
+        if n = 0 then min
+        else if (n%10) < min then MinDigitDown_body (n/10) (n%10)
+            else MinDigitDown_body (n/10) min
     MinDigitDown_body (n/10) (n%10)
