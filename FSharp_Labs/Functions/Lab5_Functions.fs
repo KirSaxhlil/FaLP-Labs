@@ -121,6 +121,11 @@ let rec DigitTraversal n func init =
 let DigitTraversal_Cond n cond func init =
     DigitTraversal n (fun x y -> if cond y then func x y else x) init
 
-    // Method 2: quantity of odd digits
-let OddDigitQuantity n =
+    // Method 2: quantity of odd digits bigger then 3
+let Method_2 n =
     DigitTraversal_Cond n (fun x -> x % 2 = 1 && x > 3) (fun a b -> a + 1) 0
+
+    // Method 3: multiplication of dividers, digits sum of is smaller then original number digits sum
+let Method_3 n =
+    let Sum a b = a + b
+    DividersTraversal_Cond n (fun a -> DigitTraversal a Sum 0 < DigitTraversal n Sum 0) (fun x y -> x * y) 1

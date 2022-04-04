@@ -94,9 +94,12 @@ let task_17() =
 let task_18() =
     let number_1 = 14
     let number_2 = 74517
+    let number_3 = 436
     Console.WriteLine "Задача 18"
     Console.Write ("Сумма простых делителей числа " + Convert.ToString number_1 + ": ")
     Console.WriteLine (SimpleDividersSum number_1)
     Console.Write ("Количество нечетных цифр числа " + Convert.ToString number_2 + ", больших 3: ")
-    Console.WriteLine (OddDigitQuantity number_2)
+    Console.WriteLine (Method_2 number_2)
+    Console.Write ("Прозведение таких делителей числа " + Convert.ToString number_3 + ", сумма цифр которых меньше, чем сумма цифр исходного числа: ")
+    Console.WriteLine (Method_3 number_3)
     Console.WriteLine()
