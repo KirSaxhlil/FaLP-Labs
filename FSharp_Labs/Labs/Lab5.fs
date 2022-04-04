@@ -14,7 +14,8 @@ let task_11() =
 let task_12() = 
     Console.WriteLine "Задача 12"
     Console.WriteLine "Назовите ваш любимый язык программирования:"
-    Console.WriteLine (question (Console.ReadLine())) // Carring
+    let carring input_func func output_func = output_func (func (input_func())) // bruh carring func
+    carring Console.ReadLine question Console.WriteLine // Carring
     Console.WriteLine()
     Console.WriteLine "Назовите ваш любимый язык программирования:"
     (Console.ReadLine >> question >> Console.WriteLine)() // Superposition
