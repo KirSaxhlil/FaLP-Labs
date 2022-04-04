@@ -103,3 +103,20 @@ let task_19() =
     Console.Write ("Прозведение таких делителей числа " + Convert.ToString number_3 + ", сумма цифр которых меньше, чем сумма цифр исходного числа: ")
     Console.WriteLine (Method_3 number_3)
     Console.WriteLine()
+
+let task_20() =
+    let carring input func output = 
+        let func_num = fst input
+        let arg = snd input
+        output ((func func_num) arg)
+
+    Console.WriteLine "Задача 20"
+
+    Console.WriteLine "Введите номер функции и ее аргумент:"
+    let input = (Int32.Parse (Console.ReadLine()), Int32.Parse (Console.ReadLine()))
+    carring input FuncChooser Console.WriteLine // Carring
+    Console.WriteLine()
+
+    Console.WriteLine "Введите номер функции и ее аргумент:"
+    ((Console.ReadLine >> Int32.Parse >> (Console.ReadLine >> Int32.Parse >> FuncChooser)()) >> Console.WriteLine)() // Superposition
+    Console.WriteLine()

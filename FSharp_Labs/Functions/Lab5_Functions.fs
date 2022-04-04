@@ -129,3 +129,11 @@ let Method_2 n =
 let Method_3 n =
     let Sum a b = a + b
     DividersTraversal_Cond n (fun a -> DigitTraversal a Sum 0 < DigitTraversal n Sum 0) (fun x y -> x * y) 1
+
+////// TASK 20 //////
+let FuncChooser n = 
+    match n with
+    | 1 -> SimpleDividersSum
+    | 2 -> Method_2
+    | 3 -> Method_3
+    | _ -> (fun x -> x)
