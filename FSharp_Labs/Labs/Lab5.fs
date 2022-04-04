@@ -80,3 +80,13 @@ let task_16() =
     Console.WriteLine ("Число эйлера для числа " + Convert.ToString number_1 + ": " + Convert.ToString (EulerNumber number_1))
     Console.WriteLine ("Число эйлера для числа " + Convert.ToString number_2 + ": " + Convert.ToString (EulerNumber number_2))
     Console.WriteLine()
+
+let task_17() =
+    let number = 14
+    Console.WriteLine "Задача 17"
+    Console.WriteLine ("Исходное число: " + Convert.ToString number)
+    Console.Write "Произведение четных делителей числа: "
+    Console.WriteLine (DividersTraversal_Cond number (fun x -> x % 2 = 0) (fun x y -> x * y) 1)
+    Console.Write "Сумма простых компонентов числа, больших числа эйлера этого числа: "
+    Console.WriteLine (SimpleCompTraversal_Cond number (fun x -> x > EulerNumber number) (fun x y -> x + y) 0)
+    Console.WriteLine()

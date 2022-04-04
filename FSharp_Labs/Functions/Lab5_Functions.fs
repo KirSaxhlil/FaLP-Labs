@@ -98,3 +98,10 @@ let EulerNumber x =
         else if GCD x iter = 1 then EulerNumber_body x (iter - 1) (q + 1)
             else EulerNumber_body x (iter - 1) q
     EulerNumber_body x x 0
+
+////// TASK 17 //////
+let DividersTraversal_Cond n cond func init = 
+    DividersTraversal n (fun x y -> if cond y then func x y else x) init
+
+let SimpleCompTraversal_Cond n cond func init = 
+    SimpleCompTraversal n (fun x y -> if cond y then func x y else x) init
