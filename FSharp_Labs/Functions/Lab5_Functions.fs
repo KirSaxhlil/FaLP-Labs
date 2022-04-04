@@ -111,3 +111,16 @@ let SimpleCompTraversal_Cond n cond func init =
     // Method 1: sum of simple dividers
 let SimpleDividersSum n = 
     DividersTraversal_Cond n (fun x -> DividersTraversal x (fun a b -> a + 1) 0 = 2) (fun x y -> x + y) 0
+
+    // Additional method: operations with digits
+let rec DigitTraversal n func init =
+    if n = 0 then init
+    else DigitTraversal (n / 10) func (func init (n % 10))
+
+    // Additional method: operation with digits with condition
+let DigitTraversal_Cond n cond func init =
+    DigitTraversal n (fun x y -> if cond y then func x y else x) init
+
+    // Method 2: quantity of odd digits
+let OddDigitQuantity n =
+    DigitTraversal_Cond n (fun x -> x % 2 = 1 && x > 3) (fun a b -> a + 1) 0
