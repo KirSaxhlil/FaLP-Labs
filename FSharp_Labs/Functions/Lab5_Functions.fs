@@ -72,3 +72,21 @@ let DividersTraversal n func init =
                 else init
             DividersTraversal_body n func newInit (divider - 1)
     DividersTraversal_body n func init n
+
+////// TASK 15 //////
+let GCD x y =
+    let rec GCD_body x y iter result =
+        if iter = x then result
+        else if x % iter = 0 && y % iter = 0 then GCD_body x y (iter+1) iter
+            else GCD_body x y (iter+1) result
+    GCD_body x y 1 1
+
+let SimpleCompTraversal n func init =
+    let rec SimpleCompTraversal_body n func init iter = 
+        if iter = 0 then init
+        else 
+            let newInit =
+                if GCD n iter = 1 then func init iter
+                else init
+            SimpleCompTraversal_body n func newInit (iter - 1)
+    SimpleCompTraversal_body n func init n

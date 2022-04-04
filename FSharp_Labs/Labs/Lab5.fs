@@ -57,3 +57,17 @@ let task_14() =
                                                                 else y
                                                             else x) number)
     Console.WriteLine()
+
+let task_15() =
+    let number = 14
+    Console.WriteLine "Задача 15"
+    Console.WriteLine ("Исходное число: " + Convert.ToString number)
+    Console.Write "Сумма простых компонентов числа: "
+    Console.WriteLine (SimpleCompTraversal number (fun x y -> x + y) 0)
+    Console.Write "Произведение простых компонентов числа: "
+    Console.WriteLine (SimpleCompTraversal number (fun x y -> x * y) 1)
+    Console.Write "Максимальный из простых компонентов числа: "
+    Console.WriteLine (SimpleCompTraversal number (fun x y -> if x > y then x else y) 0)
+    Console.Write "Минимальный из простых компонентов числа: "
+    Console.WriteLine (SimpleCompTraversal number (fun x y -> if x < y then x else y) number)
+    Console.WriteLine()
