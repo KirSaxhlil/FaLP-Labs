@@ -106,7 +106,7 @@ let DividersTraversal_Cond n cond func init =
 let SimpleCompTraversal_Cond n cond func init = 
     SimpleCompTraversal n (fun x y -> if cond y then func x y else x) init
 
-////// TASK 18 //////
+////// TASK 19 //////
 // Variant 1 //
     // Method 1: sum of simple dividers
 let SimpleDividersSum n = 

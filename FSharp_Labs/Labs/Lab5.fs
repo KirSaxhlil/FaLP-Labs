@@ -91,11 +91,11 @@ let task_17() =
     Console.WriteLine (SimpleCompTraversal_Cond number (fun x -> x > EulerNumber number) (fun x y -> x + y) 0)
     Console.WriteLine()
 
-let task_18() =
+let task_19() =
     let number_1 = 14
     let number_2 = 74517
     let number_3 = 436
-    Console.WriteLine "Задача 18"
+    Console.WriteLine "Задача 19"
     Console.Write ("Сумма простых делителей числа " + Convert.ToString number_1 + ": ")
     Console.WriteLine (SimpleDividersSum number_1)
     Console.Write ("Количество нечетных цифр числа " + Convert.ToString number_2 + ", больших 3: ")
