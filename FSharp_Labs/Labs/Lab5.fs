@@ -71,3 +71,11 @@ let task_15() =
     Console.Write "Минимальный из простых компонентов числа: "
     Console.WriteLine (SimpleCompTraversal number (fun x y -> if x < y then x else y) number)
     Console.WriteLine()
+
+let task_16() = 
+    Console.WriteLine "Задача 16"
+    let number_1 = 34
+    let number_2 = 14
+    Console.WriteLine ("Число эйлера для числа " + Convert.ToString number_1 + ": " + Convert.ToString (EulerNumber number_1))
+    Console.WriteLine ("Число эйлера для числа " + Convert.ToString number_2 + ": " + Convert.ToString (EulerNumber number_2))
+    Console.WriteLine()

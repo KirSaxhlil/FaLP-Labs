@@ -90,3 +90,11 @@ let SimpleCompTraversal n func init =
                 else init
             SimpleCompTraversal_body n func newInit (iter - 1)
     SimpleCompTraversal_body n func init n
+
+////// TASK 16 //////
+let EulerNumber x =
+    let rec EulerNumber_body x iter q = 
+        if iter = 0 then q
+        else if GCD x iter = 1 then EulerNumber_body x (iter - 1) (q + 1)
+            else EulerNumber_body x (iter - 1) q
+    EulerNumber_body x x 0
