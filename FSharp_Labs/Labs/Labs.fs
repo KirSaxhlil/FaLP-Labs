@@ -2,6 +2,7 @@
 open Lab5
 
 let lab5() =
+    task_18()
     task_17()
     task_16()
     task_15()

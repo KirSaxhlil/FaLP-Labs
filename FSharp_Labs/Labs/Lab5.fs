@@ -90,3 +90,11 @@ let task_17() =
     Console.Write "Сумма простых компонентов числа, больших числа эйлера этого числа: "
     Console.WriteLine (SimpleCompTraversal_Cond number (fun x -> x > EulerNumber number) (fun x y -> x + y) 0)
     Console.WriteLine()
+
+let task_18() =
+    let number = 14
+    Console.WriteLine "Задача 18"
+    Console.WriteLine ("Исходное число: " + Convert.ToString number)
+    Console.Write "Сумма простых делителей числа: "
+    Console.WriteLine (SimpleDividersSum number)
+    Console.WriteLine()
