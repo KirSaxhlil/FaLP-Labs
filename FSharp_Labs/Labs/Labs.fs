@@ -1,5 +1,6 @@
 ﻿module Labs
 open Lab5
+open Lab6
 
 let lab5 task =
     match task with
@@ -14,7 +15,12 @@ let lab5 task =
     | 20 -> task_20()
     | _ -> ()
 
+let lab6 task =
+    match task with
+    | _ -> ()
+
 let lab_chooser lab task = 
     match lab with
     | 5 -> lab5 task
+    | 6 -> lab6 task
     | _ -> ()
