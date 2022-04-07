@@ -16,6 +16,7 @@ let lab5 task =
 let lab6 task =
     match task with
     | 11 -> Lab6.task_11()
+    | 12 -> Lab6.task_12()
     | _ -> ()
 
 let lab_chooser lab task = 
