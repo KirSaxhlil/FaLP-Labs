@@ -2,7 +2,8 @@
 open Labs
 
 [<EntryPoint>]
-let Main argv = 
+let Main argv =
+    Console.WriteLine "Введите номер задачи: "
     let input = Console.ReadLine()
     let lab = input.Split(".")[0] |> Int32.Parse
     let task = input.Split(".")[1] |> Int32.Parse
