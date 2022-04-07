@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Functions\Lab7_Functions.fs" />
     <Compile Include="Functions\Lab6_Functions.fs" />
     <Compile Include="Functions\Lab5_Functions.fs" />
+    <Compile Include="Labs\Lab7.fs" />
     <Compile Include="Labs\Lab6.fs" />
     <Compile Include="Labs\Lab5.fs" />
     <Compile Include="Labs\Labs.fs" />
