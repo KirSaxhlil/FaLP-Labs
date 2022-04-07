@@ -26,6 +26,7 @@ let triple_lister list func =
         | a::[] -> triple_lister_body [] func (res @ [func a 1 1])
     triple_lister_body list func []
 
+////// Variant 1 //////
 ////// TASK 12 //////
 let ListTraversal list func init = 
     let rec ListTraversal_body list func init ind =
@@ -46,3 +47,7 @@ let ListFindLastMax list =
 let ListQuantity_afterLastMax list =
     let maxInd = snd (ListFindLastMax list)
     ListTraversalCond list (fun x y -> snd y > maxInd) (fun x y -> (fst x + 1, 0) ) 0 0
+
+////// TASK 13 //////
+let ListFindMin list =
+    ListFind_byValue list (fun x y -> (fst y) < (fst x)) list.Head 0
