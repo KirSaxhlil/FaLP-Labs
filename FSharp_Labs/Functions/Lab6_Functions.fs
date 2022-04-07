@@ -51,3 +51,11 @@ let ListQuantity_afterLastMax list =
 ////// TASK 13 //////
 let ListFindMin list =
     ListFind_byValue list (fun x y -> (fst y) < (fst x)) list.Head 0
+
+////// TASK 14 //////
+let ListMovePreMin list =
+    let rec ListMovePreMin_body list min =
+        match list with
+        | h::t -> if h <> min then ListMovePreMin_body (t @ [h]) ( fst (ListFindMin t))
+                  else list
+    ListMovePreMin_body list ( fst (ListFindMin list))
