@@ -6,13 +6,13 @@ open Lab5_Functions
 // func_name(): unit -> unit !
 
 let task_11() =
-    Console.WriteLine "Задача 11"
+    Console.WriteLine "Задача 5.11"
     Console.WriteLine "Назовите ваш любимый язык программирования:"
     Console.ReadLine() |> question |> Console.WriteLine
     Console.WriteLine()
 
 let task_12() = 
-    Console.WriteLine "Задача 12"
+    Console.WriteLine "Задача 5.12"
     Console.WriteLine "Назовите ваш любимый язык программирования:"
     let carring input_func func output_func = output_func (func (input_func())) // bruh carring func
     carring Console.ReadLine question Console.WriteLine // Carring
@@ -23,7 +23,7 @@ let task_12() =
 
 let task_13() = 
     let number = 386
-    Console.WriteLine "Задача 13"
+    Console.WriteLine "Задача 5.13"
     Console.WriteLine ("Исходное число: " + Convert.ToString number)
     Console.Write "Произведение цифр числа, рекусрия вверх: "
     Console.WriteLine (DigitMultUp number)
@@ -41,7 +41,7 @@ let task_13() =
 
 let task_14() =
     let number = 543
-    Console.WriteLine "Задача 14"
+    Console.WriteLine "Задача 5.14"
     Console.WriteLine ("Исходное число: " + Convert.ToString number)
     Console.Write "Сумма делителей числа: "
     Console.WriteLine (DividersTraversal number (fun x y -> x + y) 0)
@@ -61,7 +61,7 @@ let task_14() =
 
 let task_15() =
     let number = 14
-    Console.WriteLine "Задача 15"
+    Console.WriteLine "Задача 5.15"
     Console.WriteLine ("Исходное число: " + Convert.ToString number)
     Console.Write "Сумма простых компонентов числа: "
     Console.WriteLine (SimpleCompTraversal number (fun x y -> x + y) 0)
@@ -74,7 +74,7 @@ let task_15() =
     Console.WriteLine()
 
 let task_16() = 
-    Console.WriteLine "Задача 16"
+    Console.WriteLine "Задача 5.16"
     let number_1 = 34
     let number_2 = 14
     Console.WriteLine ("Число эйлера для числа " + Convert.ToString number_1 + ": " + Convert.ToString (EulerNumber number_1))
@@ -83,7 +83,7 @@ let task_16() =
 
 let task_17() =
     let number = 14
-    Console.WriteLine "Задача 17"
+    Console.WriteLine "Задача 5.17"
     Console.WriteLine ("Исходное число: " + Convert.ToString number)
     Console.Write "Произведение четных делителей числа: "
     Console.WriteLine (DividersTraversal_Cond number (fun x -> x % 2 = 0) (fun x y -> x * y) 1)
@@ -95,7 +95,7 @@ let task_19() =
     let number_1 = 14
     let number_2 = 74517
     let number_3 = 436
-    Console.WriteLine "Задача 19"
+    Console.WriteLine "Задача 5.19"
     Console.Write ("Сумма простых делителей числа " + Convert.ToString number_1 + ": ")
     Console.WriteLine (SimpleDividersSum number_1)
     Console.Write ("Количество нечетных цифр числа " + Convert.ToString number_2 + ", больших 3: ")
@@ -110,7 +110,7 @@ let task_20() =
         let arg = snd input
         output ((func func_num) arg)
 
-    Console.WriteLine "Задача 20"
+    Console.WriteLine "Задача 5.20"
 
     Console.WriteLine "Введите номер функции и ее аргумент:"
     let input = (Int32.Parse (Console.ReadLine()), Int32.Parse (Console.ReadLine()))
