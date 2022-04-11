@@ -69,3 +69,13 @@ let task_17() =
     outputList (ListGetPart list a b) // Include borders
     outputList (ListGetPart list (a+1) (b-1)) // Exclude borders
     Console.WriteLine()
+
+let task_18() =
+    Console.WriteLine "Задача 6.18"
+    let list = [3;6;26;8;0;2]
+    Console.WriteLine "Исходный список: "
+    outputList list
+    let result = ListIndexes list
+    Console.WriteLine ("Индексы удовлетворяющих элементов: ")
+    outputList result
+    Console.WriteLine()

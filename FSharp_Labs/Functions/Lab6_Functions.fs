@@ -95,3 +95,16 @@ let ListFindMax_inPart list a b =
 ////// TASK 17 //////
 let ListFindFirstMax list =
     ListFind_byValue list (fun x y -> fst y > fst x) list.Head 0
+
+////// TASK 18 //////
+let ListIndexes list =
+    let rec ListIndexes_body list iter result =
+        match list with
+        | [] -> result
+        | h::[] -> result
+        | h::a::t -> if a < h then ListIndexes_body (a::t) (iter+1) (result @ [iter])
+                     else ListIndexes_body (a::t) (iter+1) result
+    ListIndexes_body list 1 []
+
+let ListLength list = 
+    ListTraversal list (fun x y -> x + 1) 0
