@@ -42,7 +42,7 @@ let ListFind_byValue list cond init init_ind =
     ListTraversalCond list cond (fun x y -> y) init init_ind
 
 let ListFindLastMax list =
-    ListFind_byValue list (fun x y -> y >= x) list.Head 0
+    ListFind_byValue list (fun x y -> fst y >= fst x) list.Head 0
 
 let ListQuantity_afterLastMax list =
     let maxInd = snd (ListFindLastMax list)
@@ -91,3 +91,7 @@ let ListGetPart list a b =
 let ListFindMax_inPart list a b =
     let partList = ListGetPart list a b
     ListFindLastMax partList
+
+////// TASK 17 //////
+let ListFindFirstMax list =
+    ListFind_byValue list (fun x y -> fst y > fst x) list.Head 0

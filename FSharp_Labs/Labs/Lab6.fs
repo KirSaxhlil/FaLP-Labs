@@ -57,3 +57,15 @@ let task_16() =
     outputList (ListGetPart list a b)
     Console.WriteLine ("Максимум в интервале [" + a.ToString() + ";" + b.ToString() + "]: " + (fst (ListFindMax_inPart list a b)).ToString())
     Console.WriteLine()
+
+let task_17() =
+    Console.WriteLine "Задача 6.17"
+    let list = [3;6;26;8;0;26]
+    Console.WriteLine "Исходный список: "
+    outputList list
+    let a = snd (ListFindFirstMax list)
+    let b = snd (ListFindLastMax list)
+    Console.WriteLine ("Элементы между первым и последним максимумами: ")
+    outputList (ListGetPart list a b) // Include borders
+    outputList (ListGetPart list (a+1) (b-1)) // Exclude borders
+    Console.WriteLine()
