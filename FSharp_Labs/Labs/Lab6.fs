@@ -88,3 +88,12 @@ let task_19() =
     Console.WriteLine ("Количество минимальных элементов: ")
     ListMinQuantity list |> Console.WriteLine
     Console.WriteLine()
+
+let task_20() =
+    Console.WriteLine "Задача 6.20"
+    let list = [3;3;26;8;3;2;4;5;4;7;87;4;120;120;120;-1;-1;-1]
+    Console.WriteLine "Исходный список: "
+    outputList list
+    Console.WriteLine ("Новый список: ")
+    outputList (QuadroList list)
+    Console.WriteLine()

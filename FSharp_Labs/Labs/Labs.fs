@@ -24,6 +24,7 @@ let lab6 task =
     | 17 -> Lab6.task_17()
     | 18 -> Lab6.task_18()
     | 19 -> Lab6.task_19()
+    | 20 -> Lab6.task_20()
     | _ -> ()
 
 let lab7 task =

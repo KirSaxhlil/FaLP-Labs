@@ -116,3 +116,26 @@ let ListQuantity list cond =
 let ListMinQuantity list = 
     let min = ListFindMin list
     ListQuantity list (fun x y -> fst y = fst min)
+
+////// TASK 20 //////
+let ListFreq list value =
+    ListQuantity list (fun x y -> fst y = value)
+
+let ListDel_byCond list cond = 
+    let rec ListDel_byCond_body list cond result =
+        match list with
+        | [] -> result
+        | h::t -> if cond h then ListDel_byCond_body t cond result
+                  else ListDel_byCond_body t cond (result @ [h])
+    ListDel_byCond_body list cond []
+
+let ListDel_byValue list value =
+    ListDel_byCond list (fun x -> x = value)
+
+let QuadroList list =
+    let rec QuadroList_body body_list result =
+        match body_list with
+        | [] -> result
+        | h::t -> if h >= 0 && h < 100 && (ListFreq list h) > 2 then QuadroList_body (ListDel_byValue t h) (result @ [h*h])
+                  else QuadroList_body (ListDel_byValue t h) result
+    QuadroList_body list []
