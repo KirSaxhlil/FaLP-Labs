@@ -36,3 +36,12 @@ let task_14() =
     Console.WriteLine "Итоговый список: "
     outputList (ListMovePreMin list)
     Console.WriteLine()
+
+let task_15() =
+    Console.WriteLine "Задача 6.15"
+    let list = [3;6;26;8;0;2]
+    Console.WriteLine "Исходный список: "
+    outputList list
+    let index = 3
+    Console.WriteLine ("Является ли элемент под номером " + index.ToString() + " локальным минимумом: " + (ListLocalMin list index).ToString())
+    Console.WriteLine()

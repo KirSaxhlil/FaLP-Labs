@@ -59,3 +59,22 @@ let ListMovePreMin list =
         | h::t -> if h <> min then ListMovePreMin_body (t @ [h]) ( fst (ListFindMin t))
                   else list
     ListMovePreMin_body list ( fst (ListFindMin list))
+
+////// TASK 15 //////
+let ListGetElem list index =
+    ListTraversalCond list (fun x y -> snd y = index) (fun x y -> y) 0 -1
+
+let ListLocalMin list index =
+    let a = ListGetElem list (index-1)
+    let b = ListGetElem list index
+    let c = ListGetElem list (index+1)
+    if snd a <> -1 && snd c <> -1 then
+        if fst a >= fst b && fst c >= fst b then true
+        else false
+    else if snd a = -1 then
+        if fst b <= fst c then true
+        else false
+    else if snd c = -1 then
+        if fst a >= fst b then true
+        else false
+    else true
