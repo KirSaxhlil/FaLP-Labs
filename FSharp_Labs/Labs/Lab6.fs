@@ -79,3 +79,12 @@ let task_18() =
     Console.WriteLine ("Индексы удовлетворяющих элементов: ")
     outputList result
     Console.WriteLine()
+
+let task_19() =
+    Console.WriteLine "Задача 6.19"
+    let list = [3;0;26;8;0;2]
+    Console.WriteLine "Исходный список: "
+    outputList list
+    Console.WriteLine ("Количество минимальных элементов: ")
+    fst (ListMinQuantity list) |> Console.WriteLine
+    Console.WriteLine()

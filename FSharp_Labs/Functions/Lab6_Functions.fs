@@ -108,3 +108,8 @@ let ListIndexes list =
 
 let ListLength list = 
     ListTraversal list (fun x y -> x + 1) 0
+
+////// TASK 19 //////
+let ListMinQuantity list = 
+    let min = ListFindMin list
+    ListTraversalCond list (fun x y -> fst y = fst min) (fun x y -> (fst x + 1,0) ) 0 0
