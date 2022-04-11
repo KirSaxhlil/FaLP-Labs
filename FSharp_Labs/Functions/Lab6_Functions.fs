@@ -78,3 +78,16 @@ let ListLocalMin list index =
         if fst a >= fst b then true
         else false
     else true
+
+////// TASK 16 //////
+let ListGetPart list a b =
+    let rec ListGetPart_body list a b iter result =
+        match list with
+        | [] -> result
+        | h::t -> if iter >= a && iter <= b then ListGetPart_body t a b (iter+1) (result @ [h])
+                  else ListGetPart_body t a b (iter+1) result
+    ListGetPart_body list a b 0 []
+
+let ListFindMax_inPart list a b =
+    let partList = ListGetPart list a b
+    ListFindLastMax partList

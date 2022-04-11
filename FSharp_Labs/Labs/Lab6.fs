@@ -45,3 +45,15 @@ let task_15() =
     let index = 3
     Console.WriteLine ("Является ли элемент под номером " + index.ToString() + " локальным минимумом: " + (ListLocalMin list index).ToString())
     Console.WriteLine()
+
+let task_16() =
+    Console.WriteLine "Задача 6.16"
+    let list = [3;6;26;8;0;2]
+    Console.WriteLine "Исходный список: "
+    outputList list
+    let a = 2
+    let b = 4
+    Console.WriteLine ("Список в интервале [" + a.ToString() + ";" + b.ToString() + "]: ")
+    outputList (ListGetPart list a b)
+    Console.WriteLine ("Максимум в интервале [" + a.ToString() + ";" + b.ToString() + "]: " + (fst (ListFindMax_inPart list a b)).ToString())
+    Console.WriteLine()
