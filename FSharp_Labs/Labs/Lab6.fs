@@ -86,5 +86,5 @@ let task_19() =
     Console.WriteLine "Исходный список: "
     outputList list
     Console.WriteLine ("Количество минимальных элементов: ")
-    fst (ListMinQuantity list) |> Console.WriteLine
+    ListMinQuantity list |> Console.WriteLine
     Console.WriteLine()
