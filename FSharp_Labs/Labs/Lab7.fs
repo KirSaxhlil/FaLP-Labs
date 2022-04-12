@@ -102,7 +102,7 @@ let task_18() =
 
 let task_19() =
     Console.WriteLine "Задача 7.19"
-    let stringe = "Bruh стринге"
+    let stringe = "bахb"
     Console.WriteLine ("Исходная строка: " + stringe)
-    Method_1 stringe |> Console.WriteLine
+    Method_2 stringe |> Console.WriteLine
     Console.WriteLine()

@@ -43,3 +43,12 @@ let outputArray (array:'a[]) =
 ////// TASK 19 //////
 let Method_1 (stringe:String) =
     (String.filter (fun c -> (c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я')) stringe).Length
+
+let Method_2 (stringe:String) =
+    let stringe = String.filter (fun c -> c >= 'a' && c <= 'z') stringe
+    let rec processing iter =
+        if stringe.Length < 2 then true
+        else if iter > stringe.Length/2 then true
+             else if stringe[iter] <> stringe[stringe.Length-iter-1] then false
+                  else processing (iter+1)
+    processing 0
