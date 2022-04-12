@@ -112,3 +112,18 @@ let task_19() =
     Console.Write "Результат: "
     (task stringe) |> Console.WriteLine
     Console.WriteLine()
+
+let task_20() =
+    Console.WriteLine "Задача 7.20"
+    (*Console.WriteLine "Выберите задачу:
+1 - Количество русских символов
+2 - Образуют ли латинские символы палиндром
+3 - Есть ли дата"
+    let task = Console.ReadLine() |> Int32.Parse |> Method_Chooser
+    Console.WriteLine "Введите строку для обработки:"
+    let stringe = Console.ReadLine()
+    Console.Write "Результат: "
+    (task stringe) |> Console.WriteLine
+    Console.WriteLine()*)
+    let strings = ["Кись кись мяу мяу гааааааав гав";"Уоуоуоуаупоа";"брбрббраабрб"]
+    (Method_4 strings) |> Console.WriteLine

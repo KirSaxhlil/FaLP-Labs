@@ -64,3 +64,24 @@ let Method_Chooser = function
     | 2 -> Method_2 >> Convert.ToString
     | 3 -> Method_3 >> Convert.ToString
     | _ -> (fun x -> "Error input")
+
+////// TASK 20 //////
+let isVowel char =
+    let tmp = Char.ToLower char
+    match tmp with
+    | 'у' | 'е' | 'ы' | 'а' | 'о' | 'э' | 'я' | 'и' | 'ю' -> true
+    | _ -> false
+
+let isConsonant char =
+    let tmp = Char.ToLower char
+    match tmp with
+    | 'у' | 'е' | 'ы' | 'а' | 'о' | 'э' | 'я' | 'и' | 'ю' -> false
+    | _ -> if tmp >= 'а' && tmp <= 'я' then true
+           else false
+
+let QVowels stringe = (String.filter (fun x -> isVowel x) stringe).Length
+
+let QConsonants stringe = (String.filter (fun x -> isConsonant x) stringe).Length
+
+let Method_4 (list:String list) =
+    List.sortBy (fun x -> abs ((QVowels x) - (QConsonants x))) list
