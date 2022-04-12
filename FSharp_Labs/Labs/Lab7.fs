@@ -26,11 +26,20 @@ let task_12() =
     Console.WriteLine()
 
 let task_13() =
-    Console.WriteLine "Задача 7.11"
+    Console.WriteLine "Задача 7.13"
     let list = [3;6;26;8;0;26;2]
     Console.WriteLine "Исходный список: "
     Lab6_Functions.outputList list
     let max = List.max list
     let max_ind = List.findIndex (fun x -> x = max) list
     Console.WriteLine ("Количество элементов после первого максимального: " + ((List.skip (max_ind+1) list).Length).ToString())
+    Console.WriteLine()
+
+let task_14() =
+    Console.WriteLine "Задача 7.14"
+    let list = [3;6;26;8;1;26;2]
+    Console.WriteLine "Исходный список: "
+    Lab6_Functions.outputList list
+    let newList = List.filter (fun x -> x % 2 = 0) list
+    Console.WriteLine ("Количество четных элементов: " + (newList.Length).ToString())
     Console.WriteLine()

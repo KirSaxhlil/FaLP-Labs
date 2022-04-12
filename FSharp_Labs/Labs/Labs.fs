@@ -32,6 +32,7 @@ let lab7 task =
     | 11 -> Lab7.task_11()
     | 12 -> Lab7.task_12()
     | 13 -> Lab7.task_13()
+    | 14 -> Lab7.task_14()
     | _ -> ()
 
 let lab_chooser lab task = 
