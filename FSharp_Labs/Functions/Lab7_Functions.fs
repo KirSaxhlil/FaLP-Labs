@@ -96,3 +96,8 @@ let MedaSort list =
             let median = Median list
             MedaSort_body (List.removeAt (List.findIndex (fun x -> x = median) list) list) (res @ [median])
     MedaSort_body list []
+
+let Method_Chooser2 = function
+    | 1 -> Method_4
+    | 2 -> MedaSort
+    | _ -> (fun x -> x)

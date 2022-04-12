@@ -115,15 +115,11 @@ let task_19() =
 
 let task_20() =
     Console.WriteLine "Задача 7.20"
-    (*Console.WriteLine "Выберите задачу:
-1 - Количество русских символов
-2 - Образуют ли латинские символы палиндром
-3 - Есть ли дата"
-    let task = Console.ReadLine() |> Int32.Parse |> Method_Chooser
-    Console.WriteLine "Введите строку для обработки:"
-    let stringe = Console.ReadLine()
-    Console.Write "Результат: "
-    (task stringe) |> Console.WriteLine
-    Console.WriteLine()*)
     let strings = ["Кись кись мяу мяу гааааааав гав";"Уоуоуоуаупоа";"брбрббраабрб"]
-    (MedaSort strings) |> Console.WriteLine
+    Console.WriteLine "Выберите задачу:
+1 - Отсортировать по разнице в количестве гласных и согласных
+2 - Отсортировать по медианному значению"
+    let task = Console.ReadLine() |> Int32.Parse |> Method_Chooser2
+    Console.Write "Результат: "
+    (task strings) |> Console.WriteLine
+    Console.WriteLine()
