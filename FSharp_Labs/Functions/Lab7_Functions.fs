@@ -1,4 +1,5 @@
 ﻿module Lab7_Functions
+open System
 
 ////// Variant 1 //////
 // 
@@ -29,3 +30,12 @@ let FindMaxSubseq list1 list2 =
             if tmp.Length > res.Length then FindMaxSubseq_body list1 list2 (iter+1) tmp
             else FindMaxSubseq_body list1 list2 (iter+1) res
     FindMaxSubseq_body list1 list2 0 []
+
+////// TASK 18 //////
+let outputArray (array:'a[]) =
+    let rec outputArray_body iter =
+        if iter = array.Length then Console.WriteLine()
+        else (array.GetValue iter) |> Console.Write
+             Console.Write " "
+             outputArray_body (iter+1)
+    outputArray_body 0

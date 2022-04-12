@@ -88,3 +88,14 @@ let task_17() =
     Console.Write "Наибольшая по длине подпоследовательность: "
     Lab6_Functions.outputList maxss
     Console.WriteLine()
+
+let task_18() =
+    Console.WriteLine "Задача 7.18"
+    let array = [|'П';'р';'и';'в';'е';'т'|]
+    Console.Write "Исходный массив: "
+    outputArray array
+    let newArray = Array.copy array
+    Array.Reverse newArray
+    Console.Write "Обратный массив: "
+    outputArray newArray
+    Console.WriteLine()
