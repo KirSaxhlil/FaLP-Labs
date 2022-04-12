@@ -126,4 +126,4 @@ let task_20() =
     (task stringe) |> Console.WriteLine
     Console.WriteLine()*)
     let strings = ["Кись кись мяу мяу гааааааав гав";"Уоуоуоуаупоа";"брбрббраабрб"]
-    (Method_4 strings) |> Console.WriteLine
+    (MedaSort strings) |> Console.WriteLine

@@ -85,3 +85,14 @@ let QConsonants stringe = (String.filter (fun x -> isConsonant x) stringe).Lengt
 
 let Method_4 (list:String list) =
     List.sortBy (fun x -> abs ((QVowels x) - (QConsonants x))) list
+
+let Median (list:'a list) = (List.sort list).Item (list.Length/2)
+
+let MedaSort list =
+    let rec MedaSort_body list res =
+        match list with
+        | [] -> res
+        | _ ->
+            let median = Median list
+            MedaSort_body (List.removeAt (List.findIndex (fun x -> x = median) list) list) (res @ [median])
+    MedaSort_body list []
