@@ -64,5 +64,4 @@ let task_16() =
     Lab6_Functions.outputList L1
     Console.Write "Список L2: "
     Lab6_Functions.outputList L2
-    //Console.WriteLine ("Среднее арифметическое модулей элементов: " + (average).ToString())
     Console.WriteLine()
