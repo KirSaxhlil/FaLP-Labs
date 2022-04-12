@@ -1,5 +1,6 @@
 ﻿module Lab7_Functions
 open System
+open System.Text.RegularExpressions
 
 ////// Variant 1 //////
 // 
@@ -52,3 +53,8 @@ let Method_2 (stringe:String) =
              else if stringe[iter] <> stringe[stringe.Length-iter-1] then false
                   else processing (iter+1)
     processing 0
+
+let Method_3 (stringe:String) =
+    if Regex.IsMatch( stringe, @"[0-9][0-9].[0-9][0-9].[0-9][0-9][0-9][0-9]" ) then true
+    else if Regex.IsMatch( stringe, @"[0-9][0-9].[0-9][0-9].[0-9][0-9]" ) then true
+    else false
