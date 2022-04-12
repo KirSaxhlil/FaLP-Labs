@@ -52,3 +52,17 @@ let task_15() =
     let average = List.averageBy (fun (x:int) -> Convert.ToDouble (abs x)) list
     Console.WriteLine ("Среднее арифметическое модулей элементов: " + (average).ToString())
     Console.WriteLine()
+
+let task_16() =
+    Console.WriteLine "Задача 7.16"
+    let list = [3;1;26;8;1;26;1;3]
+    Console.Write "Исходный список: "
+    Lab6_Functions.outputList list
+    let L1 = List.distinct list
+    let L2 = List.collect (fun x -> [(List.where (fun y -> x = y) list).Length]) L1
+    Console.Write "Список L1: "
+    Lab6_Functions.outputList L1
+    Console.Write "Список L2: "
+    Lab6_Functions.outputList L2
+    //Console.WriteLine ("Среднее арифметическое модулей элементов: " + (average).ToString())
+    Console.WriteLine()
