@@ -2,4 +2,30 @@
 
 ////// Variant 1 //////
 // 
-////// TASK 11 //////
+////// TASK 17 //////
+let subsequer list_len=
+    let rec subwequer_body start finish superList =
+        if start = finish then
+            if finish = (list_len - 1) then superList @ [[start]]
+            else subwequer_body start (finish + 1) superList @ [[start]]
+        else if finish = (list_len - 1) then subwequer_body (start+1) (start) superList @ [[start .. finish]]
+             else subwequer_body start (finish + 1) superList @ [[start .. finish]]
+    subwequer_body 0 0 [[]]
+
+let morph ind_list list =
+    let rec morph_body (ind_list:int list list) (list:int list) ind res =
+        if ind = (ind_list.Length) then res
+        else morph_body ind_list list (ind + 1) (res @ [List.collect (fun i -> [list.Item i]) (ind_list.Item ind)])
+    morph_body ind_list list 0 [[]]
+
+let FindMaxSubseq list1 list2 =
+    let rec FindMaxSubseq_body (list1:int list list) (list2:int list list) iter (res:int list) =
+        if iter = list1.Length then res
+        else
+            let tmp1 = List.tryFind (fun x -> list1.Item iter = x) list2
+            let tmp =
+                if tmp1.IsNone then []
+                else tmp1.Value
+            if tmp.Length > res.Length then FindMaxSubseq_body list1 list2 (iter+1) tmp
+            else FindMaxSubseq_body list1 list2 (iter+1) res
+    FindMaxSubseq_body list1 list2 0 []
