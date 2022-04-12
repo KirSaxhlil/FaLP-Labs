@@ -43,3 +43,12 @@ let task_14() =
     let newList = List.filter (fun x -> x % 2 = 0) list
     Console.WriteLine ("Количество четных элементов: " + (newList.Length).ToString())
     Console.WriteLine()
+
+let task_15() =
+    Console.WriteLine "Задача 7.15"
+    let list = [3;6;26;8;1;26;2]
+    Console.WriteLine "Исходный список: "
+    Lab6_Functions.outputList list
+    let average = List.averageBy (fun (x:int) -> Convert.ToDouble (abs x)) list
+    Console.WriteLine ("Среднее арифметическое модулей элементов: " + (average).ToString())
+    Console.WriteLine()
