@@ -39,3 +39,7 @@ let outputArray (array:'a[]) =
              Console.Write " "
              outputArray_body (iter+1)
     outputArray_body 0
+
+////// TASK 19 //////
+let Method_1 (stringe:String) =
+    (String.filter (fun c -> (c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я')) stringe).Length

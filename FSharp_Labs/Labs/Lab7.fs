@@ -99,3 +99,10 @@ let task_18() =
     Console.Write "Обратный массив: "
     outputArray newArray
     Console.WriteLine()
+
+let task_19() =
+    Console.WriteLine "Задача 7.19"
+    let stringe = "Bruh стринге"
+    Console.WriteLine ("Исходная строка: " + stringe)
+    Method_1 stringe |> Console.WriteLine
+    Console.WriteLine()
