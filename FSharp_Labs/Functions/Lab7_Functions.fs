@@ -58,3 +58,9 @@ let Method_3 (stringe:String) =
     if Regex.IsMatch( stringe, @"[0-9][0-9].[0-9][0-9].[0-9][0-9][0-9][0-9]" ) then true
     else if Regex.IsMatch( stringe, @"[0-9][0-9].[0-9][0-9].[0-9][0-9]" ) then true
     else false
+
+let Method_Chooser = function
+    | 1 -> Method_1 >> Convert.ToString
+    | 2 -> Method_2 >> Convert.ToString
+    | 3 -> Method_3 >> Convert.ToString
+    | _ -> (fun x -> "Error input")

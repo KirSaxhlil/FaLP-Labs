@@ -102,7 +102,13 @@ let task_18() =
 
 let task_19() =
     Console.WriteLine "Задача 7.19"
-    let stringe = "hg 21.09.20 bruh"
-    Console.WriteLine ("Исходная строка: " + stringe)
-    Method_3 stringe |> Console.WriteLine
+    Console.WriteLine "Выберите задачу:
+1 - Количество русских символов
+2 - Образуют ли латинские символы палиндром
+3 - Есть ли дата"
+    let task = Console.ReadLine() |> Int32.Parse |> Method_Chooser
+    Console.WriteLine "Введите строку для обработки:"
+    let stringe = Console.ReadLine()
+    Console.Write "Результат: "
+    (task stringe) |> Console.WriteLine
     Console.WriteLine()
