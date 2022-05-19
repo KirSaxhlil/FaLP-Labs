@@ -77,3 +77,8 @@ b_s(X):-b_s_f(X);b_s_l(X);b_s_m(X).
 grand_pa(X,Y):-parent(X,Z),parent(Z,Y).
 grand_pas(X):-parent(Y,X),parent(Z,Y),write(Z),nl,fail.
 grand_pa_and_son(X,Y):-parent(A,B),parent(B,C),((A==X,C==Y);(A==Y,C==X)).
+
+max(X,Y,Z):-X>Y,Z is X;Y>X,Z is Y.
+max(0,Y,U,Z):-Z is Y + U.
+max(X,0,U,Z):-Z is X + U.
+max(X,Y,U,Z):-X1 is X-1, Y1 is Y-1,U1 is U+1,max(X1,Y1,U1,Z). %idk why there is necessary U
