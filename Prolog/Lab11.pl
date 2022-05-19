@@ -51,3 +51,18 @@ children(X):-parent(X,Y),write(Y),nl,fail.
 
 mother(X,Y):-parent(X,Y),woman(X).
 mother(X):-parent(Y,X),woman(Y),write(Y),nl.
+
+father(X,Y):-parent(X,Y), man(X).
+father(X):-parent(Y,X),man(Y),write(Y),nl.
+
+brothers_l(X):-father(F,X),mother(M,X),father(F,Y),mother(M,Y),man(Y),not(X==Y),write(Y),nl,fail.
+brothers_f(X):-father(F,X),mother(M,X),father(F,Y),mother(N,Y),man(Y),not(X==Y),not(M==N),write(Y),nl,fail.
+brothers_m(X):-father(F,X),mother(M,X),father(N,Y),mother(M,Y),man(Y),not(X==Y),not(F==N),write(Y),nl,fail.
+brother(X,Y):-parent(Z,X),parent(Z,Y),man(X).
+brothers(X):-brothers_l(X);brothers_f(X);brothers_m(X).
+
+b_s(X,Y):-mother(Z,X),mother(Z,Y),father(N,X),father(N,Y).
+b_s_l(X):-father(F,X),mother(M,X),father(F,Y),mother(M,Y),not(X==Y),write(Y),nl,fail.
+b_s_f(X):-father(F,X),mother(M,X),father(F,Y),mother(N,Y),not(X==Y),not(M==N),write(Y),nl,fail.
+b_s_m(X):-father(F,X),mother(M,X),father(N,Y),mother(M,Y),not(X==Y),not(F==N),write(Y),nl,fail.
+b_s(X):-b_s_f(X);b_s_l(X);b_s_m(X).
