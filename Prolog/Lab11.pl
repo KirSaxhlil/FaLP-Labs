@@ -82,3 +82,7 @@ max(X,Y,Z):-X>Y,Z is X;Y>X,Z is Y.
 max(0,Y,U,Z):-Z is Y + U.
 max(X,0,U,Z):-Z is X + U.
 max(X,Y,U,Z):-X1 is X-1, Y1 is Y-1,U1 is U+1,max(X1,Y1,U1,Z). %idk why there is necessary U
+
+%factorial rec up
+fact(0,1):-!.
+fact(N,X):-N1 is N-1, fact(N1,F),X is N*F.
