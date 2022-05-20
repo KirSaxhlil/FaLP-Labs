@@ -91,3 +91,12 @@ fact(N,X):-N1 is N-1, fact(N1,F),X is N*F.
 fact_down(N,X):-fact_down_body(N,X,1).
 fact_down_body(0,X,X):-!.
 fact_down_body(N,X,C):-N1 is N-1, C1 is C*N, fact_down_body(N1,X,C1).
+
+%digit sum rec up
+dsu(0,0):-!.
+dsu(N,S):-N1 is N div 10, dsu(N1,NS), D is N mod 10, S is NS + D.
+
+%digit sum rec down
+dsd(N,S):-dsdb(N,S,0).
+dsdb(0,S,S):-!.
+dsdb(N,S,C):-N1 is N div 10, D is N mod 10, C1 is C + D, dsdb(N1,S,C1).
