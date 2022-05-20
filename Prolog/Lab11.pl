@@ -86,3 +86,8 @@ max(X,Y,U,Z):-X1 is X-1, Y1 is Y-1,U1 is U+1,max(X1,Y1,U1,Z). %idk why there is 
 %factorial rec up
 fact(0,1):-!.
 fact(N,X):-N1 is N-1, fact(N1,F),X is N*F.
+
+%factorial rec down
+fact_down(N,X):-fact_down_body(N,X,1).
+fact_down_body(0,X,X):-!.
+fact_down_body(N,X,C):-N1 is N-1, C1 is C*N, fact_down_body(N1,X,C1).
