@@ -163,3 +163,8 @@ cyberbruh_down(N,Q):-cbdb(N,Q,0).
 cbdb(0,Q,Q):-!.
 cbdb(N,Q,C):-D is N mod 10, 1 is D mod 2, D > 3, N1 is N div 10, C1 is C + 1, cbdb(N1,Q,C1),!.
 cbdb(N,Q,C):-N1 is N div 10, cbdb(N1,Q,C).
+
+%task 19
+fib_up(1,1):-!.
+fib_up(2,1):-!.
+fib_up(N,X):-N1 is N - 1, N2 is N - 2, fib_up(N1,X1), fib_up(N2,X2), X is X1 + X2.
