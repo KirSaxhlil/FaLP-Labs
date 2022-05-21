@@ -100,3 +100,32 @@ dsu(N,S):-N1 is N div 10, dsu(N1,NS), D is N mod 10, S is NS + D.
 dsd(N,S):-dsdb(N,S,0).
 dsdb(0,S,S):-!.
 dsdb(N,S,C):-N1 is N div 10, D is N mod 10, C1 is C + D, dsdb(N1,S,C1).
+
+%bruh moment
+nod(X,0,X):-!.
+nod(X,Y,N):-X1 is X mod Y, nod(Y,X1,N).
+
+%vz_prost(1071,462).
+
+vz_prost(X,Y):-nod(X,Y,Z), Z is 1.
+
+dq(X,Q):-dqd(X,X,0,Q),!.
+dqd(X,0,Q,Q):-!.
+dqd(X,I,Q,Z):-I1 is I-1, D is X mod I, D == 0, Q1 is Q + 1, dqd(X,I1,Q1,Z).
+dqd(X,I,Q,Z):-I1 is I-1, dqd(X,I1,Q,Z).
+
+list_sum(List,Sum):-lsb(List,Sum,0).
+lsb([],Sum,Sum):-!.
+lsb([H|T],Sum,S):-S1 is S + H, lsb(T,Sum,S1).
+
+max_list(List):-mlb(List,List,0,0,0,MI),write(MI),nl,!.
+
+mlbb([],X,S,S):-!.
+mlbb([H|T],X,Sum,S):-H<X, vz_prost(H,X), S1 is S + H, mlbb(T,X,Sum,S1),!.
+mlbb([H|T],X,Sum,S):-mlbb(T,X,Sum,S),!.
+
+mlb(List,[],I,MS,MI,MI):-!.
+mlb(List,[H|T],I,MS,MI,G):-mlbb(List,H,Sum,0), Sum > MS, I1 is I + 1, mlb(List,T,I1,Sum,I,G),!.
+mlb(List,[H|T],I,MS,MI,G):-I1 is I + 1, mlb(List,T,I1,MS,MI,G),!.
+
+%bruh momnet ends
