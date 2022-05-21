@@ -152,3 +152,8 @@ digit_mult_up(N,M):-N1 is N div 10, D is N mod 10, digit_mult_up(N1,M1), M is D*
 digit_mult_down(N,M):-dmdb(N,M,1).
 dmdb(0,M,M):-!.
 dmdb(N,M,C):-D is N mod 10, N1 is N div 10, C1 is C * D, dmdb(N1,M,C1).
+
+%task 17
+cyberbruh_up(0,0):-!.
+cyberbruh_up(N,Q):-D is N mod 10, 1 is D mod 2, D > 3, N1 is N div 10, cyberbruh_up(N1,Q1), Q is Q1 + 1,!.
+cyberbruh_up(N,Q):-N1 is N div 10, cyberbruh_up(N1,Q1), Q is Q1.
