@@ -143,3 +143,7 @@ grand_mas(X):-grand_ma(Y,X),write(Y),nl,fail.
 
 %task 14
 grand_ma_and_son(X,Y):-parent(A,B),parent(B,C),((A==X,C==Y,woman(X),man(Y));(A==Y,C==X,woman(Y),man(X))).
+
+%task 15
+digit_mult_up(0,1):-!.
+digit_mult_up(N,M):-N1 is N div 10, D is N mod 10, digit_mult_up(N1,M1), M is D*M1.
