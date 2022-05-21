@@ -147,3 +147,8 @@ grand_ma_and_son(X,Y):-parent(A,B),parent(B,C),((A==X,C==Y,woman(X),man(Y));(A==
 %task 15
 digit_mult_up(0,1):-!.
 digit_mult_up(N,M):-N1 is N div 10, D is N mod 10, digit_mult_up(N1,M1), M is D*M1.
+
+%task 16
+digit_mult_down(N,M):-dmdb(N,M,1).
+dmdb(0,M,M):-!.
+dmdb(N,M,C):-D is N mod 10, N1 is N div 10, C1 is C * D, dmdb(N1,M,C1).
