@@ -140,3 +140,6 @@ sisters(X):-sisters_l(X);sisters_f(X);sisters_m(X).
 %task 13
 grand_ma(X,Y):-parent(X,Z),parent(Z,Y),woman(X).
 grand_mas(X):-grand_ma(Y,X),write(Y),nl,fail.
+
+%task 14
+grand_ma_and_son(X,Y):-parent(A,B),parent(B,C),((A==X,C==Y,woman(X),man(Y));(A==Y,C==X,woman(Y),man(X))).
