@@ -168,3 +168,8 @@ cbdb(N,Q,C):-N1 is N div 10, cbdb(N1,Q,C).
 fib_up(1,1):-!.
 fib_up(2,1):-!.
 fib_up(N,X):-N1 is N - 1, N2 is N - 2, fib_up(N1,X1), fib_up(N2,X2), X is X1 + X2.
+
+%task 20
+fib_down(N,X):-fibb(N,2,X,1,1).
+fibb(N,N,X,A,X):-!.
+fibb(N,I,X,A,B):-I1 is I + 1, C is A + B, fibb(N,I1,X,B,C).
