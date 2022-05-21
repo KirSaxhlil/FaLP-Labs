@@ -157,3 +157,9 @@ dmdb(N,M,C):-D is N mod 10, N1 is N div 10, C1 is C * D, dmdb(N1,M,C1).
 cyberbruh_up(0,0):-!.
 cyberbruh_up(N,Q):-D is N mod 10, 1 is D mod 2, D > 3, N1 is N div 10, cyberbruh_up(N1,Q1), Q is Q1 + 1,!.
 cyberbruh_up(N,Q):-N1 is N div 10, cyberbruh_up(N1,Q1), Q is Q1.
+
+%task 18
+cyberbruh_down(N,Q):-cbdb(N,Q,0).
+cbdb(0,Q,Q):-!.
+cbdb(N,Q,C):-D is N mod 10, 1 is D mod 2, D > 3, N1 is N div 10, C1 is C + 1, cbdb(N1,Q,C1),!.
+cbdb(N,Q,C):-N1 is N div 10, cbdb(N1,Q,C).
