@@ -136,3 +136,7 @@ sisters_f(X):-father(F,X),mother(M,X),father(F,Y),mother(N,Y),woman(Y),not(X==Y)
 sisters_m(X):-father(F,X),mother(M,X),father(N,Y),mother(M,Y),woman(Y),not(X==Y),not(F==N),write(Y),nl,fail.
 sister(X,Y):-parent(Z,X),parent(Z,Y),woman(X).
 sisters(X):-sisters_l(X);sisters_f(X);sisters_m(X).
+
+%task 13
+grand_ma(X,Y):-parent(X,Z),parent(Z,Y),woman(X).
+grand_mas(X):-grand_ma(Y,X),write(Y),nl,fail.
