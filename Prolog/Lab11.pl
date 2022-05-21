@@ -59,6 +59,7 @@ children(X):-parent(X,Y),write(Y),nl,fail.
 mother(X,Y):-parent(X,Y),woman(X).
 mother(X):-parent(Y,X),woman(Y),write(Y),nl.
 
+%task 11
 father(X,Y):-parent(X,Y), man(X).
 father(X):-parent(Y,X),man(Y),write(Y),nl.
 
@@ -127,5 +128,11 @@ mlbb([H|T],X,Sum,S):-mlbb(T,X,Sum,S),!.
 mlb(List,[],I,MS,MI,MI):-!.
 mlb(List,[H|T],I,MS,MI,G):-mlbb(List,H,Sum,0), Sum > MS, I1 is I + 1, mlb(List,T,I1,Sum,I,G),!.
 mlb(List,[H|T],I,MS,MI,G):-I1 is I + 1, mlb(List,T,I1,MS,MI,G),!.
-
 %bruh momnet ends
+
+%task 12
+sisters_l(X):-father(F,X),mother(M,X),father(F,Y),mother(M,Y),woman(Y),not(X==Y),write(Y),nl,fail.
+sisters_f(X):-father(F,X),mother(M,X),father(F,Y),mother(N,Y),woman(Y),not(X==Y),not(M==N),write(Y),nl,fail.
+sisters_m(X):-father(F,X),mother(M,X),father(N,Y),mother(M,Y),woman(Y),not(X==Y),not(F==N),write(Y),nl,fail.
+sister(X,Y):-parent(Z,X),parent(Z,Y),woman(X).
+sisters(X):-sisters_l(X);sisters_f(X);sisters_m(X).
