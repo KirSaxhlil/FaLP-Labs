@@ -55,8 +55,11 @@ let Method_2 (stringe:String) =
     processing 0
 
 let Method_3 (stringe:String) =
-    if Regex.IsMatch( stringe, @"[0-9][0-9].[0-9][0-9].[0-9][0-9][0-9][0-9]" ) then true
-    else if Regex.IsMatch( stringe, @"[0-9][0-9].[0-9][0-9].[0-9][0-9]" ) then true
+    if Regex.IsMatch( stringe, @"[0-2][0-9].02.[0-9][0-9][0-9][0-9]" ) then true
+    else if Regex.IsMatch( stringe, @"[0-2][0-9].0[0-9].[1-9][0-9][0-9][0-9]" ) then true
+    else if Regex.IsMatch( stringe, @"[0-2][0-9].1[0-2].[1-9][0-9][0-9][0-9]" ) then true
+    else if Regex.IsMatch( stringe, @"3[0-1].0[1-9].[0-9][0-9][0-9][0-9]" ) then true
+    else if Regex.IsMatch( stringe, @"3[0-1].1[0-2].[0-9][0-9][0-9][0-9]" ) then true
     else false
 
 let Method_Chooser = function
