@@ -23,3 +23,8 @@ digit_sum(N,S,C):-D is N mod 10, N1 is N div 10, C1 is C + D, digit_sum(N1,S,C1)
 mpdu(N,1,1):-!.
 mpdu(N,I,S):-I1 is I - 1, 0 is N mod I, digit_sum(N,SS1), digit_sum(I,SS2), SS2 < SS1, mpdu(N,I1,S1), S is S1 * I,!.
 mpdu(N,I,S):-I1 is I - 1, mpdu(N,I1,S).
+
+mpdd(N,S):-mpdd(N,N,S,1).
+mpdd(N,1,S,S):-!.
+mpdd(N,I,S,C):-I1 is I - 1, 0 is N mod I, digit_sum(N,SS1), digit_sum(I,SS2), SS2 < SS1, C1 is C * I, mpdd(N,I1,S,C1),!.
+mpdd(N,I,S,C):-I1 is I - 1, mpdd(N,I1,S,C),!.
