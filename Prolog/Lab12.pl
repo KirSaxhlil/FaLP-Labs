@@ -33,3 +33,26 @@ mpdd(N,I,S,C):-I1 is I - 1, mpdd(N,I1,S,C),!.
 list_length(List,S):-list_length(List,S,0).
 list_length([],S,S):-!.
 list_length([H|T],S,C):-C1 is C + 1, list_length(T,S,C1),!.
+
+%additional
+append([],X,X).
+append([H|T],X,[H|T1]):-append(T,X,T1).
+
+read_list(0, []):-!.
+read_list(N, [X|T]):- read(X), N1 is N-1, read_list(N1, T).
+
+write_list([]):-!.
+write_list([H|T]):-write(H),write(' '),write_list(T).
+
+%task 15
+find_Lmax([H|T],M,I):-find_Lmax(T,M,H,I,0).
+find_Lmax([],M,M,I,I):-!.
+find_Lmax([H|T],M,C,I,CI):-H > C, CI1 is CI + 1, find_Lmax(T,M,H,I,CI1),!.
+find_Lmax([H|T],M,C,I,CI):-CI1 is CI + 1, find_Lmax(T,M,C,I,CI).
+
+qalm(List,Q):-find_Lmax(List,M,I),qalm(List,I,0,Q,0).
+qalm([],M,I,Q,Q):-!.
+qalm([H|T],M,I,Q,C):-I > M, C1 is C + 1, I1 is I + 1, qalm(T,M,I1,Q,C1),!.
+qalm([H|T],M,I,Q,C):-I1 is I + 1, qalm(T,M,I1,Q,C).
+
+task15(N):-read_list(List,N),qalm(List,Q),write(Q).
