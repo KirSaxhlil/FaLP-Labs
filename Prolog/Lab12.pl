@@ -45,14 +45,14 @@ write_list([]):-!.
 write_list([H|T]):-write(H),write(' '),write_list(T).
 
 %task 15
-find_Lmax([H|T],M,I):-find_Lmax(T,M,H,I,0).
-find_Lmax([],M,M,I,I):-!.
-find_Lmax([H|T],M,C,I,CI):-H > C, CI1 is CI + 1, find_Lmax(T,M,H,I,CI1),!.
-find_Lmax([H|T],M,C,I,CI):-CI1 is CI + 1, find_Lmax(T,M,C,I,CI).
+find_Lmax([H|T],M,I):-find_Lmax(T,M,H,I,0,1).
+find_Lmax([],M,M,I,I,U):-!.
+find_Lmax([H|T],M,C,I,CI,U):-H >= C, U1 is U + 1, find_Lmax(T,M,H,I,U,U1),!.
+find_Lmax([H|T],M,C,I,CI,U):-U1 is U + 1, find_Lmax(T,M,C,I,CI,U1).
 
 qalm(List,Q):-find_Lmax(List,M,I),qalm(List,I,0,Q,0).
 qalm([],M,I,Q,Q):-!.
 qalm([H|T],M,I,Q,C):-I > M, C1 is C + 1, I1 is I + 1, qalm(T,M,I1,Q,C1),!.
 qalm([H|T],M,I,Q,C):-I1 is I + 1, qalm(T,M,I1,Q,C).
 
-task15(N):-read_list(List,N),qalm(List,Q),write(Q).
+task15(N):-read_list(N,List),qalm(List,Q),write(Q).
