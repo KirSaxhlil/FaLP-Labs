@@ -56,3 +56,11 @@ qalm([H|T],M,I,Q,C):-I > M, C1 is C + 1, I1 is I + 1, qalm(T,M,I1,Q,C1),!.
 qalm([H|T],M,I,Q,C):-I1 is I + 1, qalm(T,M,I1,Q,C).
 
 task15(N):-read_list(N,List),qalm(List,Q),write(Q).
+
+%task 16
+find_Lmin([H|T],M,I):-find_Lmin(T,M,H,I,0,1).
+find_Lmin([],M,M,I,I,U):-!.
+find_Lmin([H|T],M,C,I,CI,U):-H < C, U1 is U + 1, find_Lmin(T,M,H,I,U,U1),!.
+find_Lmin([H|T],M,C,I,CI,U):-U1 is U + 1, find_Lmin(T,M,C,I,CI,U1).
+
+task16(N):-read_list(N,List),find_Lmin(List,M,I),write(I).
