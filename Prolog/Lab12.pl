@@ -58,9 +58,17 @@ qalm([H|T],M,I,Q,C):-I1 is I + 1, qalm(T,M,I1,Q,C).
 task15(N):-read_list(N,List),qalm(List,Q),write(Q).
 
 %task 16
-find_Lmin([H|T],M,I):-find_Lmin(T,M,H,I,0,1).
-find_Lmin([],M,M,I,I,U):-!.
-find_Lmin([H|T],M,C,I,CI,U):-H < C, U1 is U + 1, find_Lmin(T,M,H,I,U,U1),!.
-find_Lmin([H|T],M,C,I,CI,U):-U1 is U + 1, find_Lmin(T,M,C,I,CI,U1).
+find_Fmin([H|T],M,I):-find_Fmin(T,M,H,I,0,1).
+find_Fmin([],M,M,I,I,U):-!.
+find_Fmin([H|T],M,C,I,CI,U):-H < C, U1 is U + 1, find_Fmin(T,M,H,I,U,U1),!.
+find_Fmin([H|T],M,C,I,CI,U):-U1 is U + 1, find_Fmin(T,M,C,I,CI,U1).
 
-task16(N):-read_list(N,List),find_Lmin(List,M,I),write(I).
+task16(N):-read_list(N,List),find_Fmin(List,M,I),write(I).
+
+%task 17
+rebuild(List,NewList):-find_Fmin(List,M,I),rebuild(List,I,0,P1,P2,[],[]),append(P2,P1,NewList).
+rebuild([],I,C,P1,P2,P1,P2):-!.
+rebuild([H|T],I,C,P1,P2,PP1,PP2):-C >= I, NewC is C + 1, append(PP2,[H],NewPP2),rebuild(T,I,NewC,P1,P2,PP1,NewPP2),!.
+rebuild([H|T],I,C,P1,P2,PP1,PP2):-NewC is C + 1, append(PP1,[H],NewPP1),rebuild(T,I,NewC,P1,P2,NewPP1,PP2).
+
+task17(N):-read_list(N,List),rebuild(List,NewList),write_list(NewList).
