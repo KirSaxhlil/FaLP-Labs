@@ -89,3 +89,11 @@ get([H|T],A,B,NewList,I,C):-I >= A, I =< B, append(C,[H],C1), I1 is I + 1, get(T
 get([H|T],A,B,NewList,I,C):-I1 is I + 1, get(T,A,B,NewList,I1,C),!.
 
 task19(N):-read_list(N,List), read(A),read(B),get(List,A,B,New),find_Lmax(New,M,I),write(M).
+
+%task 20
+find_Fmax([H|T],M,I):-find_Fmax(T,M,H,I,0,1).
+find_Fmax([],M,M,I,I,U):-!.
+find_Fmax([H|T],M,C,I,CI,U):-H > C, U1 is U + 1, find_Fmax(T,M,H,I,U,U1),!.
+find_Fmax([H|T],M,C,I,CI,U):-U1 is U + 1, find_Fmax(T,M,C,I,CI,U1).
+
+task20(N):-read_list(N,List),find_Fmax(List,M1,A),find_Lmax(List,M2,B),get(List,A,B,New),write_list(New).
