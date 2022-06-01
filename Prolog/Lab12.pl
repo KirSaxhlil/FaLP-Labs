@@ -72,3 +72,11 @@ rebuild([H|T],I,C,P1,P2,PP1,PP2):-C >= I, NewC is C + 1, append(PP2,[H],NewPP2),
 rebuild([H|T],I,C,P1,P2,PP1,PP2):-NewC is C + 1, append(PP1,[H],NewPP1),rebuild(T,I,NewC,P1,P2,NewPP1,PP2).
 
 task17(N):-read_list(N,List),rebuild(List,NewList),write_list(NewList).
+
+%task 18
+local_min(List,I):-local_min(List,I,0).
+local_min([H1|H2|H3|T],I,C):-I is C + 1, H2 <= H1, H2 <= H3,!.
+local_min([H1|H2|H3|T],I,C):-I is C + 1,fail,!.
+local_min([H1|H2|H3|T],I,C):-NewC is C + 1, local_min([H2|H3|T],I,NewC),!.
+
+task18(N):-read_list(N,List),read(I),local_min(List,I).
