@@ -74,9 +74,18 @@ rebuild([H|T],I,C,P1,P2,PP1,PP2):-NewC is C + 1, append(PP1,[H],NewPP1),rebuild(
 task17(N):-read_list(N,List),rebuild(List,NewList),write_list(NewList).
 
 %task 18
-local_min(List,I):-local_min(List,I,0).
-local_min([H1|H2|H3|T],I,C):-I is C + 1, H2 <= H1, H2 <= H3,!.
-local_min([H1|H2|H3|T],I,C):-I is C + 1,fail,!.
-local_min([H1|H2|H3|T],I,C):-NewC is C + 1, local_min([H2|H3|T],I,NewC),!.
+isLocalMin([F,S|_],0):-F<S,!.
+isLocalMin([F,S|T],Ind):-localMin(F,S,T,Ind,1).
+localMin(F,S,[],Ind,Ind):-S<F,!.
+localMin(F,S,[Next|_],Ind,Ind):-S<F,S<Next,!.
+localMin(_,S,[Next|Tail],Ind,IndNow):-NextInd is IndNow+1,localMin(S,Next,Tail,Ind,NextInd).
 
-task18(N):-read_list(N,List),read(I),local_min(List,I).
+task18(N):-read_list(N,List),read(I),isLocalMin(List,I).
+
+%task 19
+get(List,A,B,NewList):-get(List,A,B,NewList,0,[]).
+get([],A,B,C,I,C):-!.
+get([H|T],A,B,NewList,I,C):-I >= A, I =< B, append(C,[H],C1), I1 is I + 1, get(T,A,B,NewList,I1,C1),!.
+get([H|T],A,B,NewList,I,C):-I1 is I + 1, get(T,A,B,NewList,I1,C),!.
+
+task19(N):-read_list(N,List), read(A),read(B),get(List,A,B,New),find_Lmax(New,M,I),write(M).
